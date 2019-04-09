@@ -1,2 +1,8 @@
-# Ignore folder named 'env'
+# Ignore folder named 'venv'
+venv/
 env/
+biraapp/bira/__pycache__/
+biraapp/biraapp/__pycache__/
+
+# Ignore all pyc
+*.pyc

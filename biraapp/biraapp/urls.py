@@ -20,5 +20,5 @@ from django.conf.urls import url, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^', include('bira.urls')) # Add this line
+    url(r'^', include('bira.urls'))
 ]
