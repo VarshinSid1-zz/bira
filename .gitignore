@@ -6,3 +6,8 @@ biraapp/biraapp/__pycache__/
 
 # Ignore all pyc
 *.pyc
+
+
+# Ignore folder named '.idea'
+.idea/
+.idea/workspace.xml
