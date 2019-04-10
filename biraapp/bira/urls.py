@@ -1,10 +1,13 @@
 from django.conf.urls import url, include
 from rest_framework.urlpatterns import format_suffix_patterns
-from .views import CreateView, DetailsView
+from .views import get_project_by_id, projects_list, projects, create_issue
+from django.urls import path
 
 urlpatterns = {
-    url(r'^projectlists/$', CreateView.as_view(), name="create"),
-    url(r'^projectlists/(?P<pk>([0-9a-f]{8}-[0-9a-f]{4}-[4][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})+)/$', DetailsView.as_view(), name="details"),
+    path("projects/", projects_list, name="projects_list"),
+    path("projectlists/", projects, name="projects"),
+    path("project/id/<str:project_id>/", get_project_by_id, name="get_project_by_id"),
+    path("createissue/", create_issue, name="create_issue"),
 }
 
 urlpatterns = format_suffix_patterns(urlpatterns)

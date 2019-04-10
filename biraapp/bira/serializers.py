@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Projectlist
+from .models import Projectlist, Issue
 
 
 class ProjectlistSerializer(serializers.ModelSerializer):
@@ -10,3 +10,9 @@ class ProjectlistSerializer(serializers.ModelSerializer):
         model = Projectlist
         fields = ('project_id', 'project_name', 'date_created', 'date_modified')
         read_only_fields = ('date_created', 'date_modified')
+
+class IssueSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Issue
+        fields = ('issue_id', 'issue_title', 'assignee', 'type', 'sprint', 'status')
