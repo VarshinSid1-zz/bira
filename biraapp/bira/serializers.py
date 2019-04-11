@@ -15,4 +15,4 @@ class IssueSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Issue
-        fields = ('issue_id', 'issue_title', 'assignee', 'type', 'sprint', 'status')
+        fields = ('issue_id', 'issue_title', 'assignee', 'project_assigned', 'type', 'sprint', 'status')

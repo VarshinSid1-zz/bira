@@ -7,7 +7,6 @@ class Projectlist(models.Model):
     project_name = models.CharField(max_length=255, blank=False, unique=True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
-    # issues = models.ArrayField(models.CharField())
 
     def __str__(self):
         return "{}".format(self.project_name)
@@ -27,7 +26,8 @@ class Issue(models.Model):
     issue_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     issue_title = models.CharField(max_length=50)
     # labels = models.ArrayField(models.CharField())
-    assignee = models.ForeignKey(User, on_delete=models.CASCADE)
+    assignee = models.ForeignKey(User, blank=True, on_delete=models.CASCADE)
+    project_assigned = models.ForeignKey(Projectlist, on_delete=models.CASCADE)
     type = models.CharField(max_length=50)
     sprint = models.CharField(max_length=50)
     status = models.CharField(max_length=50)
@@ -38,10 +38,10 @@ class Issue(models.Model):
         return "{}".format(self.issue_title)
 
 
-class Assign_Issue(models.Model):
-    issue_id = models.ForeignKey(Issue, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return "{}".format(self.issue_id)
+# class Assign_Issue(models.Model):
+#     issue_id = models.ForeignKey(Issue, on_delete=models.CASCADE)
+#     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+#
+#     def __str__(self):
+#         return "{}".format(self.issue_id)
 

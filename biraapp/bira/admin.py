@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Projectlist, User, Issue, Assign_Issue
+from .models import Projectlist, User, Issue
 # Register your models here.
 
 
@@ -18,15 +18,14 @@ admin.site.register(User, UserAdmin)
 
 
 class IssueAdmin(admin.ModelAdmin):
-    list_display = ['issue_id', 'issue_title', 'assignee', 'type', 'sprint', 'status', 'issue_date_created',
-                    'issue_date_modified']
+    list_display = ['issue_id', 'issue_title', 'assignee', 'project_assigned', 'type', 'sprint', 'status',
+                    'issue_date_created', 'issue_date_modified']
 
 
 admin.site.register(Issue, IssueAdmin)
-
-
-class AssignAdmin(admin.ModelAdmin):
-    list_display = ('issue_id', 'user_id')
-
-
-admin.site.register(Assign_Issue, AssignAdmin)
+#
+#
+# class AssignAdmin(admin.ModelAdmin):
+#     list_display = ('issue_id', 'user_id')
+#
+# admin.site.register(Assign_Issue, AssignAdmin)
